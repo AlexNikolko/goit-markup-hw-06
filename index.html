@@ -34,7 +34,7 @@
                             </svg>
                         +38 096 111 11 11</a></li>
                 </ul>
-            </div>
+            </div>             
         </header>
         <main>
             
@@ -49,52 +49,62 @@
                 <div class="backdrop is-hidden" data-modal>
                     <div class="modal">
                         <button data-modal-close class="close">
-                            <svg class="close-icone" width="18" height="18">
+                            <svg class="close-icon" width="18" height="18">
                                 <use href="./images/icons.svg#icon-close-black"></use>
                             </svg>
                         </button>
-                        <div class="customer">
-                            <form class="form customer-form">
-                                <h3>Залиште свої дані, ми вам передзвонимо</h3>
-                            
-                                <div class="form-group">
-                                    <label for="name" class="form-label">Ім'я</label>
-                                    <input type="text" name="name" id="name">
-                                    <svg class="customer-icon" width="18" height="18">
-                                        <use href="./images/icons.svg#icon-name-customer"></use>
-                                    </svg>
-                                </div>
-                            
-                                <div class="form-group">
-                                    <label for="tel" class="form-label">Телефон</label>
-                                    <input type="tel" name="tel" id="tel">
-                                    <svg class="customer-icon" width="18" height="18">
-                                        <use href="./images/icons.svg#icon-phone-customer"></use>
-                                    </svg>
-                                </div>
-                            
-                                <div class="form-group">
-                                    <label for="mail" class="form-label">Пошта</label>
-                                    <input type="email" name="mail" id="mail">
-                                    <svg class="customer-icon" width="18" height="18">
-                                        <use href="./images/icons.svg#icon-email-customer"></use>
-                                    </svg>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="comment" class="form-label">Коментар</label>
-                                    <textarea name="comment" id="comment" rows="8" placeholder="Введіть текст"></textarea>
-                                </div>                                
-
-                                <input type="checkbox" name="" id="policy">
-                                <label for="policy">Погоджуюся з розсилкою та приймаю <a href="#" class="policy-link">Умови договору</a></label>
-
-                                <button class="customer-button" type="submit">Відправити</button>
-                            </form>
-                        </div>
+                        <h2>Залиште свої дані, ми вам передзвонимо</h2>
                         
+                        <form name="contact-form">
+                            <label class="form-label" for="person-name">Ім'я</label>
+                            <div class="form-control">
+                                <input class="form-input" id="person-name" type="text" name="person-name">
+                                <svg class="form-icon" width="18" height="18">
+                                    <use href="./images/icons.svg#icon-name-customer"></use>
+                                </svg>
+                            </div>
+
+                            <label class="form-label" for="person-phone">Телефон</label>
+                            <div class="form-control">
+                                <input class="form-input" id="person-phone" type="tel" name="person-phone">
+                                <svg class="form-icon" width="18" height="18">
+                                    <use href="./images/icons.svg#icon-phone-customer"></use>
+                                </svg>
+                            </div>
+
+                            <label class="form-label" for="person-mail">Пошта</label>
+                            <div class="form-control">
+                                <input class="form-input" id="person-mail" type="email" name="person-mail">
+                                <svg class="form-icon" width="18" height="18">
+                                    <use href="./images/icons.svg#icon-email-customer"></use>
+                                </svg>
+                            </div>
+
+                            <label class="form-label" for="person-coment">Коментар</label>
+                            <textarea
+                             class="form-textarea"
+                             name="person-coment"
+                             id="person-coment"
+                             placeholder="Введіть текст"></textarea>
+                            
+                            <input 
+                             class="checkbox-input"
+                             id="terms-checkbox" 
+                             type="checkbox" 
+                             name="terms-checkbox">
+                            
+                            <label class="checkbox-label" for="terms-checkbox">Погоджуюся з розсилкою та приймаю 
+                                <a class="terms-policy" href="#">Умови договору</a>
+                                <svg class="checkbox-icon" width="11" height="8">
+                                    <use href="./images/icons.svg#icon-icon-check"></use>
+                                </svg>
+                            </label>
+                            
+
+                            <button class="form-button" type="submit">Відправити</button>
+                        </form>
                     </div>
-                </div>                                
+                </div>
             </section>
             
             <!--Переваги компанії-->
@@ -364,10 +374,10 @@
                             </li>
                             <li>
                                 <a href="tel:+380961111111" class="contact-link">+38 096 111 11 11</a>
-                            </li>
-                        </ul>
+                            </li>                    
+                        </ul>                
                     </address>
-                </div>
+                </div>                
                 <div class="accession">
                     <p class="accession-title">ПРИЄДНУЙТЕСЬ</p>
                     <ul class="net-list accession">

@@ -47,6 +47,19 @@ ul {
     margin: 0 auto;
 }
 
+.visually-hidden {
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    border: 0;
+    padding: 0;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    margin: -1px;
+}
+
 /* Header */
 
 .page-header {    
@@ -226,25 +239,32 @@ ul {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: flex-start;
-    
-    
-
     width: 528px;
-    height: 581px;
+    max-height: 581px;
+    height: 100%;
     border-radius: 4px;
-    padding: 8px;    
+    padding: 40px;
+    overflow: auto;
 
-    background-color: #FFFFFF;    
+    background-color: #FFFFFF;
+    
+}
+
+.modal h2 {
+    font-size: 20px;
+    line-height: 23px;
+    letter-spacing: 0.03em;
+    color: #212121;
 }
 
 .close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
     width: 30px;
     height: 30px;
     border-radius: 50%;
+    cursor: pointer;
 
     display: flex;
     align-items: center;
@@ -254,84 +274,136 @@ ul {
     border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
+.close-icon {
+    transition: fill 250ms var(--timing-function);
+}
+
+.close:hover .close-icon {
+    fill: var(--accent-color);
+}
+
 /* Form */
-
-.form {
-    width: 448px;
-    margin-left: 32px;
-    margin-right: 32px;
-}
-
-.form h3 {
-    padding-bottom: 12px;
-
-    font-size: 20px;
-    color: #212121;
-    line-height: 23px;
-    text-align: center;
-    letter-spacing: 0.03em;
-}
-
-.form-group {
-    text-align: left;
-    position: relative;
-}
 
 .form-label {
     display: block;
-}
-
-.form-group:nth-child(-n + 4) {
-    margin-bottom: 10px;
-}
-
-.form-group input {
-    width: 100%;
-    height: 40px;
-    padding: 11px 12px 11px 40px;
-    border: 1px solid rgba(33, 33, 33, 0.2);
-    border-radius: 4px;
-    
-}
-
-.form-group label {
+    text-align: left;
+    margin-top: 10px;
     margin-bottom: 4px;
+    
     font-size: 12px;
-    line-height: 14px;
+    line-height: 1.2;
     letter-spacing: 0.01em;
+    color: #757575;
 }
 
-.form-group input::placeholder {
-    color: rgba(117, 117, 117, 0.5);
+.form-control {
+    position: relative;
 }
 
- .form-group textarea {
-    width: 100%;
-    height: 120px;
-    resize: none;
-    margin-bottom: 20px;
-    padding: 12px 16px;
-    border: 1px solid rgba(33, 33, 33, 0.2);
-    border-radius: 4px;
-    font-size: 12px;
+.form-input {
+     width: 100%;
+     padding: 11px 11px 11px 32px;
+     border: 1px solid rgba(33, 33, 33, 0.2);
+     border-radius: 4px;
+     outline: none;
+
+    transition: border-color 250ms var(--timing-function);
 }
 
-.customer-icon {
+.form-input:focus {
+    border-color: var(--accent-color);
+
+}
+
+.form-icon {
     position: absolute;
     top: 50%;
     left: 12px;
     transform: translateY(-50%);
+    fill: #212121;
+
+    transition: fill 250ms var(--timing-function);
+}
+
+.form-control:focus-within .form-icon {
+    fill: var(--accent-color)
 }
 
 textarea {
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.01em;
+    
+    color: rgba(117, 117, 117, 0.5);
     resize: none;
 }
 
-.policy-link {
+.form-textarea {
+    width: 100%;
+    height: 120px;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    border: 1px solid rgba(33, 33, 33, 0.2);
+    border-radius: 4px;
+    outline: none;
+
+    transition: color 250ms var(--timing-function);
+}
+
+.form-textarea:focus {
+    border-color: var(--accent-color);
+}
+
+/* Checkbox */
+.checkbox-input {
+    appearance: none;
+    position: relative;
+}
+
+.checkbox-label {    
+    position: relative;
+    padding-left: 28px;
+    line-height: 1.7;
+    letter-spacing: 0.03em;
+}
+
+.terms-policy {
+    line-height: 1.7;
+    letter-spacing: 0.03em;
+}
+
+.checkbox-label::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 16px;
+    height: 15px;
+    border: 2px solid #212121;
+    border-radius: 2px;
+    content: '';
+
+    transition: background-color 250ms var(--timing-function);
+}
+
+.checkbox-input:checked + .checkbox-label::before {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.terms-policy {
     color: var(--accent-color);
 }
 
-/* Buttons */
+.checkbox-icon {
+    position: absolute;
+    left: 3px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    fill: var(--text-wight);
+}
+
+/* Button */
 
 .button.primary {
     border-radius: 4px;
@@ -347,13 +419,13 @@ textarea {
     cursor: pointer;
 }
 
-.customer-button {
+.form-button {
     margin-top: 30px;
     border-radius: 4px;
     padding: 10px 52px;
     border: 1px solid transparent;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-    
+
     color: white;
     background-color: var(--accent-color);
     font-weight: 700;
@@ -624,7 +696,8 @@ textarea {
 
 .container.ft {
     display: flex;
-    align-items: baseline;    
+    align-items: baseline;
+    justify-content: space-between;
 }
 
 .logo-footer {
@@ -646,9 +719,9 @@ textarea {
     margin-right: 50px;
 }
 
-.contact-ft {    
+.contact-ft {
     font-style: normal;
-    
+
 }
 
 .contact-adr-link {
@@ -673,10 +746,11 @@ textarea {
 }
 
 
-.accession-title, .newsletter-title {
+.accession-title,
+.newsletter-title {
     color: var(--text-wight);
     margin-bottom: 20px;
-    
+
     line-height: 1.15;
     font-weight: 700;
 }
@@ -699,7 +773,6 @@ textarea {
 
 .newsletter-group {
     display: flex;
-    justify-content: flex-end;
     gap: 12px;
 }
 
@@ -716,10 +789,10 @@ textarea {
 .newsletter-group inputp::placeholder {
     display: flex;
     align-items: center;
-    
+
     letter-spacing: 0.03em;
     font-size: 16px;
-    line-height: 20px;    
+    line-height: 20px;
     color: rgba(255, 255, 255, 0.6);
 }
 
@@ -738,7 +811,7 @@ textarea {
     font-weight: 700;
     font-size: 16px;
     line-height: 30px;
-    letter-spacing: 0.06em;    
+    letter-spacing: 0.06em;
     color: #FFFFFF;
 }
 
@@ -812,6 +885,8 @@ textarea {
     box-shadow: 1px 4px 6px 0px rgba(0, 0, 0, 0.16),
                 0px 4px 4px 0px rgba(0, 0, 0, 0.06),
                 0px 1px 1px 0px rgba(0, 0, 0, 0.12);
+    
+    
 }
 
 .card:nth-child(3n) {
