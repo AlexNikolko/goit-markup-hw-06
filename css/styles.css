@@ -244,15 +244,17 @@ ul {
     height: 100%;
     border-radius: 4px;
     padding: 40px;
-    overflow: auto;
+    overflow: hidden;
 
     background-color: #FFFFFF;
     
 }
 
-.modal h2 {
+.modal-link {
+    margin-bottom: 10px;
+    font-weight: 700;
     font-size: 20px;
-    line-height: 23px;
+    line-height: 1.15;
     letter-spacing: 0.03em;
     color: #212121;
 }
@@ -287,7 +289,6 @@ ul {
 .form-label {
     display: block;
     text-align: left;
-    margin-top: 10px;
     margin-bottom: 4px;
     
     font-size: 12px;
@@ -298,6 +299,7 @@ ul {
 
 .form-control {
     position: relative;
+    margin-bottom: 10px;
 }
 
 .form-input {
@@ -339,10 +341,11 @@ textarea {
 }
 
 .form-textarea {
+    display: block;
     width: 100%;
     height: 120px;
     padding: 12px 16px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     border: 1px solid rgba(33, 33, 33, 0.2);
     border-radius: 4px;
     outline: none;
@@ -783,6 +786,7 @@ textarea {
     border: 1px solid rgba(255, 255, 255, 0.3);
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
     border-radius: 4px;
+    color: #ffffff;
     background-color: #2F303A;
 }
 
